@@ -48,7 +48,7 @@ class App extends React.Component {
       number: this.state.newNumber
     };
 
-    if (!newPerson.name || newPerson.number) {
+    if (!newPerson.name || !newPerson.number) {
       /*pass*/
     } else if (!this.state.persons.map(p => p.name).includes(newPerson.name)) {
       personsService.addNewPerson(newPerson).then(newPerson => {
