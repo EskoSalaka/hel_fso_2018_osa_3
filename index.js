@@ -14,7 +14,7 @@ app.use(morgan(':method :url :status Request body: :body - :response-time ms'));
 app.use(express.static('working_frontend/build'));
 
 function isFalseString(str) {
-  if (!str || str.length == 0 || !str.trim()) {
+  if (!str || str.length === 0 || !str.trim()) {
     return true;
   } else {
     return false;
@@ -116,7 +116,7 @@ app.post('/api/persons', (req, res) => {
 
 app.put('/api/persons/:id', (req, res) => {
   const body = req.body;
-  
+
   if (isFalseString(body.name) || isFalseString(body.number)) {
     return res.status(400).json({
       error:
@@ -140,7 +140,7 @@ app.put('/api/persons/:id', (req, res) => {
 });
 
 module.exports = app;
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
